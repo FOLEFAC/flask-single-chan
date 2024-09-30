@@ -48,5 +48,5 @@ def saver():
     except Exception as error:
         print("--An error occurred:", type(error).__name__, "–"+channel_name+"-"+str(channel_number), error)
         return {"data_videos": data_videos}
-    print("the number of videos is ", len(data_videos))
+    #print("the number of videos is ", len(data_videos))
     return {"data_videos": data_videos}
