@@ -36,10 +36,9 @@ def saver():
             except Exception as error:
                 pass
                 #print("An error occurred:", type(error).__name__, "–", error)
-            if v%1000==0 and v>0:
-                print(v)
+            # if v%1000==0 and v>0:
+            #     print(v)
             num_videos = v
-    
             if v>1998:
                 break
             #print(video['videoId'])
