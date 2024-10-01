@@ -9,6 +9,7 @@ import pandas as pd
 import sys
 import scrapetube
 import csv
+import gc
 
 app = Flask(__name__)
 
@@ -48,4 +49,6 @@ def saver():
         print("--An error occurred:", type(error).__name__, "–"+channel_name+"-"+str(channel_number), error)
         return {"data_videos": data_videos}
     #print("the number of videos is ", len(data_videos))
+    del videos
+    
     return {"data_videos": data_videos}
