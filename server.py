@@ -20,8 +20,7 @@ def main():
 @app.route('/extract', methods=['GET'])
 def saver():
     time_init = time.time()
-    channel_number = request.url.split("-")[-1] 
-    channel_name = request.url.split("?")[-1].split("-")[0]
+    channel_name = request.url.split("?")[-1]
     #print("the channel is ", channel_name)
     data_videos = []
     videos = scrapetube.get_channel(channel_username = channel_name)
@@ -40,13 +39,13 @@ def saver():
             # if v%1000==0 and v>0:
             #     print(v)
             num_videos = v
-            if v>1998:
+            if v>9999:
                 break
             #print(video['videoId'])
             #print("timing_3.x", time.time()-time_init)
         #print("timing_4", time.time()-time_init)
     except Exception as error:
-        print("--An error occurred:", type(error).__name__, "–"+channel_name+"-"+str(channel_number), error)
+        print("--An error occurred:", type(error).__name__, "–"+channel_name, error)
         return {"data_videos": data_videos}
     #print("the number of videos is ", len(data_videos))
     del videos
