@@ -24,29 +24,29 @@ def saver():
     #print("the channel is ", channel_name)
     data_videos = []
     videos = scrapetube.get_channel(channel_username = channel_name)
-    #try:
-    for v, video in enumerate(videos):
-        try:
+    try:
+        for v, video in enumerate(videos):
+            try:
 
-            data_videos.append({'video_id':video['videoId'], 'created_at':str(datetime.datetime.utcnow()), 'uploaded_on':'unknown',
-                'title':video['title']['runs'][0]['text'], 'thumbnail':video['thumbnail']['thumbnails'][-1]['url'],
-                'rich_thumbnail':video['thumbnail']['thumbnails'][-1]['url'], 'duration':video['lengthText']['simpleText'],
-                'channel_name':channel_name})
+                data_videos.append({'video_id':video['videoId'], 'created_at':str(datetime.datetime.utcnow()), 'uploaded_on':'unknown',
+                    'title':video['title']['runs'][0]['text'], 'thumbnail':video['thumbnail']['thumbnails'][-1]['url'],
+                    'rich_thumbnail':video['thumbnail']['thumbnails'][-1]['url'], 'duration':video['lengthText']['simpleText'],
+                    'channel_name':channel_name})
 
-        except Exception as error:
-            pass
-            #print("An error occurred:", type(error).__name__, "–", error)
-        # if v%1000==0 and v>0:
-        #     print(v)
-        num_videos = v
-        if v>9999:
-            break
-            #print(video['videoId'])
-            #print("timing_3.x", time.time()-time_init)
-        #print("timing_4", time.time()-time_init)
-    # except Exception as error:
-    #     print("--An error occurred:", type(error).__name__, "–"+channel_name, error)
-    #     return {"data_videos": data_videos}
+            except Exception as error:
+                pass
+                #print("An error occurred:", type(error).__name__, "–", error)
+            # if v%1000==0 and v>0:
+            #     print(v)
+            num_videos = v
+            if v>9999:
+                break
+                #print(video['videoId'])
+                #print("timing_3.x", time.time()-time_init)
+            #print("timing_4", time.time()-time_init)
+    except Exception as error:
+        print("--An error occurred:", type(error).__name__, "–"+channel_name, error)
+        return {"data_videos": data_videos}
     #print("the number of videos is ", len(data_videos))
     del videos
     
