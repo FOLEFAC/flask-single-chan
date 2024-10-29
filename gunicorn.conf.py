@@ -21,11 +21,10 @@ workers = int(os.environ.get('GUNICORN_PROCESSES', '4'))
 
 threads = int(os.environ.get('GUNICORN_THREADS', '8'))
 
-timeout = int(os.environ.get('GUNICORN_TIMEOUT', '12000'))
+#timeout = int(os.environ.get('GUNICORN_TIMEOUT', '12000'))
 
-bind = os.environ.get('GUNICORN_BIND', '0.0.0.0:5000')
+bind = os.environ.get('GUNICORN_BIND', '0.0.0.0:5100')
 #gunicorn --config gunicorn.conf.py server:app
-
 
 forwarded_allow_ips = '*'
 
