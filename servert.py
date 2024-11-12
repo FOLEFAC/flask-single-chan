@@ -16,7 +16,7 @@ langs = ["ab", "aa", "af", "ak", "sq", "am", "ar", "hy", "as", "ay", "az", "bn",
          "lv", "ln", "lt", "luo", "lb", "mk", "mg", "ms", "ml", "mt", "gv", "mi", "mr", "mn", "mfe", "ne", "new", "nso", "no", "ny", "oc", "or", "om", "os", "pam",
          "ps", "fa", "pl", "pt", "pt-PT", "pa", "qu", "ro", "rn", "ru", "sm", "sg", "sa", "gd", "sr", "crs", "sn", "sd", "si", "sk", "sl", "so", "st", "es",
          "su", "sw", "ss", "sv", "tg", "ta", "tt", "te", "th", "bo", "ti", "to", "ts", "tn", "tum", "tr", "tk", "uk", "ur", "ug", "uz", "ve", "vi", "war", "cy",
-         "fy", "wo", "xh", "yi", "yo", "zu", "en-IN"]
+         "fy", "wo", "xh", "yi", "yo", "zu", "en-IN", "en-US"]
 
 def break_into_chunks(text, chunk_size=500):
     chunks = []
@@ -52,10 +52,10 @@ def transcription():
     time_init = time.time()
     data_video = []
     try:
-        yt = YouTubeTranscriptApi.get_transcript(video_id[:11], languages=langs)
+        yt = YouTubeTranscriptApi.get_transcript(video_id[:11], languages=langs, proxies={"https": "127.0.0.1:8000"})
 
     except Exception as error:
-        print("--An error occurred:", type(error).__name__, error)
+        #print("--An error occurred:", type(error).__name__, error)
         print("no subtitle"+"-"+video_id)
         return {"data_videos": [{'video_id':video_id, 'position':0, 'transcript':""}]}
     #print("time_1", str(time.time()-time_init)+""+video_id)

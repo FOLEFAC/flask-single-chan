@@ -1,0 +1,5 @@
+1730741691276	geckodriver	INFO	Listening on 127.0.0.1:57423
+1730741725268	geckodriver	INFO	Listening on 127.0.0.1:48481
+1730741842398	geckodriver	INFO	Listening on 127.0.0.1:45073
+1730741842403	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileoynn00"
+Running Firefox as root in a regular user's session is not supported.  ($XAUTHORITY is /run/user/1000/gdm/Xauthority which is owned by folefac.)
